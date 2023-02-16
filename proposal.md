@@ -14,7 +14,7 @@ We are in the process of building a dashboard that will display historical crime
 
 # Section 2: Description of Data
 
-We are going to visualize a [dataset](https://www.kaggle.com/datasets/sumaiaparveenshupti/vancouver-bc-historical-crime-data) provided by the Vancouver Police Department (VPD) that contains data on crimes that occurred between the years 2003 and 2022. It includes somewhere around 85,000 entries in total. VPD has released this data under the Creative Commons Public Domain Dedication License [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+We are going to visualize a [dataset](https://geodash.vpd.ca/opendata/) provided by the Vancouver Police Department (VPD) that contains data on crimes that occurred between the years 2003 and 2022. It includes somewhere around 85,000 entries in total. VPD has released this data under the Creative Commons Public Domain Dedication License [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
 
 -   Each of the entries represents a criminal act that occurred at a particular location and at a particular time.
 
