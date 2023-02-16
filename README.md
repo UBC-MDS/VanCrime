@@ -16,4 +16,4 @@ Following actions can be performed on our dashboard :
 * Filter the visualizations based on a desired region of interest from the dropdown.
 
 <br>
-![](img/design.png)
+![](img/design-new.png)
