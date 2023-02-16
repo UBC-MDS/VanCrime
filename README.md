@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository hosts the dashboard for the Vancouver (Canada) crime data released by the Vancouver Police Department ([VPD](https://vpd.ca/)). This information, which spans 2003 through 2021, is public domain and is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Background and purpose of this dashboard can be found in our [proposal](proposal.md).
+This repository hosts the dashboard for the Vancouver (Canada) crime data released by the Vancouver Police Department ([VPD](https://vpd.ca/)). This information, which spans 2003 through 2022, is public domain and is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Background and purpose of this dashboard can be found in our [proposal](proposal.md).
 
 ## Description of the Dashboard
 
