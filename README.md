@@ -26,7 +26,7 @@ Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING
 
 ## Credits
 
-`VanCrime` was created with ...
+The sketch of `VanCrime` dashboard was created with [`Balsamiq`](https://balsamiq.com/wireframes/).
 
 ## Quick Links
 
