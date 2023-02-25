@@ -45,22 +45,22 @@ ui <- navbarPage('Vancouver Crime Data',
                                                      multiple=TRUE,
                                                      selectize=FALSE,
                                                      size=length(unique_nhood)
-                                                     )),
+                                                     ),
+                                         width=2),
                             # Main area to host the plots
                             mainPanel(
                               # Further split into tabs
                               tabsetPanel(
                                 # First tab to host plots
                                 tabPanel('Plots',
-                                         'Put our plots here',
                                          # Split into 2 x 2 (equal width)
                                          fluidRow(
                                            # First row = sample plot 1 and text only
-                                           splitLayout(cellWidths = c("50%", "50%"), plotlyOutput(outputId = 'sample'), 'PLOT2 HERE')
+                                           splitLayout(cellWidths = c("50%", "50%"), plotlyOutput(outputId = 'sample'), plotlyOutput(outputId = 'crime_type_plot'))
                                          ),
                                          fluidRow(
                                            # Second row = text only and sample plot 4
-                                           splitLayout(cellWidths = c("50%", "50%"), plotlyOutput(outputId = 'total_crime_plot'), plotOutput(outputId = 'sample4'))
+                                           splitLayout(cellWidths = c("50%", "50%"), plotlyOutput(outputId = 'crime_neighbourhood_plot'), plotlyOutput(outputId = 'crime_hour_plot'))
                                          )
                                 ),
                                 # Second tab (for illustration only)
@@ -85,8 +85,27 @@ server <- function(input, output, session) {
     )
   })
 
+  # Plot 2 - Total Crimes by Type
+  output$crime_type_plot <- renderPlotly({
+    df_select <- df |>
+      filter(YEAR >= input$year[1],
+             YEAR <= input$year[2],
+             NEIGHBOURHOOD %in% input$nhood) |>
+      add_count(TYPE)
+    
+    ggplotly(
+      ggplot(df_select, aes(y=reorder(TYPE, -n), fill=TYPE, text=paste0('count: ', n))) +
+        geom_bar(stat='count') +
+        labs(x='Count',
+             y='Crime type',
+             title='Number of crimes by type') +
+        guides(fill='none'),
+      tooltip=c('text')
+    )
+  })
+  
   # Plot 3 - Total Crimes by Neighbourhood
-  output$total_crime_plot <- renderPlotly({
+  output$crime_neighbourhood_plot <- renderPlotly({
     df_select <- df |>
       filter(YEAR >= input$year[1],
              YEAR <= input$year[2],
@@ -102,11 +121,27 @@ server <- function(input, output, session) {
     )
   })
 
-  # Sample plot 4
-  output$sample4 <- renderPlot({
-    ggplot(mtcars, aes(x=cyl, y=mpg)) +
-      geom_point(size=1)
+  # Plot 4 - Total Crimes by Hour
+  output$crime_hour_plot <- renderPlotly({
+    df_select <- df |>
+      filter(YEAR >= input$year[1],
+             YEAR <= input$year[2],
+             NEIGHBOURHOOD %in% input$nhood)
+
+    ggplotly(
+      ggplot(df_select, aes(x=HOUR)) +
+        geom_line(stat='count') +
+        labs(x='Time (hour)',
+             y='Count',
+             title='Number of crimes by hour')
+    )
   })
+  
+  # Sample plot 4
+  # output$sample4 <- renderPlot({
+  #   ggplot(mtcars, aes(x=cyl, y=mpg)) +
+  #     geom_point(size=1)
+  # })
 }
 
 thematic_shiny()
