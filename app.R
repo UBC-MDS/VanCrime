@@ -4,6 +4,12 @@ library(bslib)
 library(thematic)
 library(plotly)
 library(tidyverse)
+library(shinyWidgets)
+library(leaflet)
+library(rgdal)
+
+# Optimizing workflow
+options(shiny.autoreload = TRUE)
 
 # Read data file
 df <- read.csv(file = 'data/raw/crimedata_csv_AllNeighbourhoods_AllYears.csv')
@@ -12,7 +18,8 @@ df <- read.csv(file = 'data/raw/crimedata_csv_AllNeighbourhoods_AllYears.csv')
 df[df == ''] <- NA
 df <- df |>
   drop_na() |>  # Drop NA
-  filter(YEAR < max(df$YEAR))  # Remove the latest year data (not full year in general)
+  filter(YEAR < max(df$YEAR))  |> # Remove the latest year data (not full year in general) 
+  filter(X != 0 & Y != 0)
 
 # Get year range
 year_range <- range(df$YEAR)
@@ -20,10 +27,25 @@ year_range <- range(df$YEAR)
 # Get unique neighbourhood
 unique_nhood <- sort(unique(df$NEIGHBOURHOOD))
 
+# Crime Map ####################################################################
+# X and Y coordinates (changed from UTM format to Latitude and longtitude)
+# because only latitude and longtitude can be plotted on ggmap
+
+# prepare UTM coordinates matrix
+# PS: df$X and df$Y are UTM Easting and Northing respectively
+# PS: zone= UTM zone, vancouver is UTM10
+utmcoor<-SpatialPoints(cbind(df$X, df$Y), proj4string=CRS("+proj=utm +zone=10"))
+
+#From utm to latitude or longtitude
+longlatcoor<-data.frame(spTransform(utmcoor,CRS("+proj=longlat")))
+
+colnames(longlatcoor) <- c("Longtitude", "Latitude")
+df <- cbind(df, longlatcoor)
+# Crime Map ##################################################################
 
 ui <- navbarPage('Vancouver Crime Data',
                  # Use a theme
-                 theme = bslib::bs_theme(bootswatch = 'solar'),
+                 theme = bslib::bs_theme(bootswatch = 'yeti'),
 
                  # Tab 1
                  tabPanel('Main',
@@ -37,16 +59,27 @@ ui <- navbarPage('Vancouver Crime Data',
                                                      value=year_range,
                                                      step=1,
                                                      sep=''),
-                                         # Sample code for selection box (multiple)
-                                         selectInput(inputId='nhood',
-                                                     label='NEIGHBOURHOOD',
-                                                     choices=unique_nhood,
-                                                     selected=unique_nhood,
-                                                     multiple=TRUE,
-                                                     selectize=FALSE,
-                                                     size=length(unique_nhood)
-                                                     ),
-                                         width=2),
+                                         pickerInput(
+                                           inputId = "nhood", 
+                                           label = "Select Vancouver Neighbourhood", 
+                                           choices = unique_nhood, 
+                                           selected = c("Central Business District"),
+                                           options = pickerOptions(
+                                             actionsBox = TRUE, 
+                                             size = 10,
+                                             selectedTextFormat = "count > 1",
+                                           ), 
+                                           multiple = TRUE
+                                         ),
+                                         # selectInput(inputId='nhood',
+                                         #             label='NEIGHBOURHOOD',
+                                         #             choices=unique_nhood,
+                                         #             selected=unique_nhood,
+                                         #             multiple=TRUE,
+                                         #             selectize=FALSE,
+                                         #             size=length(unique_nhood)
+                                         #             ),
+                                         width=4),
                             # Main area to host the plots
                             mainPanel(
                               # Further split into tabs
@@ -54,6 +87,11 @@ ui <- navbarPage('Vancouver Crime Data',
                                 # First tab to host plots
                                 tabPanel('Plots',
                                          # Split into 2 x 2 (equal width)
+# Crime Map ####################################################################
+                                         fluidRow(
+                                           leafletOutput("CrimeMap", height = "600px")
+                                         ),
+# Crime Map ####################################################################
                                          fluidRow(
                                            # First row = sample plot 1 and text only
                                            splitLayout(cellWidths = c("50%", "50%"), plotlyOutput(outputId = 'sample'), plotlyOutput(outputId = 'crime_type_plot'))
@@ -103,6 +141,23 @@ server <- function(input, output, session) {
       tooltip=c('text')
     )
   })
+
+  # Crime Map ##################################################################
+  output$CrimeMap <- renderLeaflet({
+    df_select <- df |>
+      filter(YEAR >= input$year[1],
+             YEAR <= input$year[2],
+             NEIGHBOURHOOD %in% input$nhood)
+    leaflet(df_select) %>%
+      addTiles() %>%
+      addMarkers(
+        lng = ~ Longtitude,
+        lat = ~ Latitude,
+        label = ~ paste0(TYPE, " (", HOUR, ":", MINUTE, ")"),
+        clusterOptions = markerClusterOptions()
+      )
+  })
+  # Crime Map ##################################################################
   
   # Plot 3 - Total Crimes by Neighbourhood
   output$crime_neighbourhood_plot <- renderPlotly({
