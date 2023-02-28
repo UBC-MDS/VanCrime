@@ -119,6 +119,7 @@ ui <- navbarPage('Vancouver Crime Data',
 )
 
 server <- function(input, output, session) {
+  # To be removed ##############################
   # Sample plot 1
   output$sample <- renderPlotly({
     ggplotly(
@@ -126,17 +127,26 @@ server <- function(input, output, session) {
         geom_point(size=1)
     )
   })
+  # To be removed ##############################
 
-  # Plot 2 - Total Crimes by Type
-  output$crime_type_plot <- renderPlotly({
-    df_select <- df |>
+  df_select <- reactive({
+    df |>
       filter(YEAR >= input$year[1],
              YEAR <= input$year[2],
              NEIGHBOURHOOD %in% input$nhood) |>
       add_count(TYPE)
+  })
+  
+  # Plot 2 - Total Crimes by Type
+  output$crime_type_plot <- renderPlotly({
+    #df_select <- df |>
+    #  filter(YEAR >= input$year[1],
+    #         YEAR <= input$year[2],
+    #         NEIGHBOURHOOD %in% input$nhood) |>
+    #  add_count(TYPE)
     
     ggplotly(
-      ggplot(df_select, aes(y=reorder(TYPE, -n), fill=TYPE, text=paste0('count: ', n))) +
+      ggplot(df_select(), aes(y=reorder(TYPE, -n), fill=TYPE, text=paste0('count: ', n))) +
         geom_bar(stat='count') +
         labs(x='Count',
              y='Crime type',
@@ -148,11 +158,12 @@ server <- function(input, output, session) {
 
   # Crime Map ##################################################################
   output$CrimeMap <- renderLeaflet({
-    df_select <- df |>
-      filter(YEAR >= input$year[1],
-             YEAR <= input$year[2],
-             NEIGHBOURHOOD %in% input$nhood)
-    leaflet(df_select) %>%
+    #df_select <- df |>
+    #  filter(YEAR >= input$year[1],
+    #         YEAR <= input$year[2],
+    #         NEIGHBOURHOOD %in% input$nhood)
+    
+    leaflet(df_select()) %>%
       addTiles() %>%
       addMarkers(
         lng = ~ Longtitude,
@@ -165,13 +176,13 @@ server <- function(input, output, session) {
   
   # Plot 3 - Total Crimes by Neighbourhood
   output$crime_neighbourhood_plot <- renderPlotly({
-    df_select <- df |>
-      filter(YEAR >= input$year[1],
-             YEAR <= input$year[2],
-             NEIGHBOURHOOD %in% input$nhood)
+    #df_select <- df |>
+    #  filter(YEAR >= input$year[1],
+    #         YEAR <= input$year[2],
+    #         NEIGHBOURHOOD %in% input$nhood)
     
     ggplotly(
-      ggplot(df_select, aes(x=YEAR, fill=NEIGHBOURHOOD)) +
+      ggplot(df_select(), aes(x=YEAR, fill=NEIGHBOURHOOD)) +
         geom_area(stat='count') +
         labs(x='Year',
              y='Total number of crimes',
@@ -182,12 +193,12 @@ server <- function(input, output, session) {
 
   # Plot 4 - Total Crimes by Hour
   output$crime_hour_plot <- renderPlotly({
-    df_select <- df |>
-      filter(YEAR >= input$year[1],
-             YEAR <= input$year[2],
-             NEIGHBOURHOOD %in% input$nhood)
+    #df_select <- df |>
+    #  filter(YEAR >= input$year[1],
+    #         YEAR <= input$year[2],
+    #         NEIGHBOURHOOD %in% input$nhood)
 
-    df_group <- df_select |>
+    df_group <- df_select() |>
       group_by(HOUR) |>
       summarise(n = n()) |>
       mutate(Time = as.factor(paste(HOUR, ':00', sep = '')),
