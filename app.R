@@ -89,7 +89,7 @@ ui <- dashboardPage(
           )
         )
       ),
-      # Second tab
+      # Second tab for map
       tabPanel(
         "Crime Map",
         fluidRow(
@@ -100,7 +100,7 @@ ui <- dashboardPage(
           )
         )
       ),
-      # Third tab
+      # Third tab for learn more
       tabPanel(
         "Learn More",
         "Put the instruction / readme here"
@@ -141,8 +141,7 @@ server <- function(input, output, session) {
       ggplot(df_select(), aes(y=reorder(TYPE, -n), fill=TYPE, text=paste0('count: ', n))) +
         geom_bar(stat='count') +
         labs(x='Count',
-             y='Crime type',
-             title='Number of crimes by type') +
+             y='Crime type') +
         guides(fill='none'),
       tooltip=c('text')
     )
@@ -208,8 +207,7 @@ server <- function(input, output, session) {
       ggplot(df_group, aes(x=Time, y = daily_avg, group = 1)) +
         geom_line() +
         labs(x='Time',
-             y='Daily Average',
-             title='Average Number of Crimes by Time') +
+             y='Daily Average') +
         scale_x_discrete(breaks=c('0:00', '3:00', '6:00', '9:00',
                                     '12:00', '15:00', '18:00', '21:00'))
     )
