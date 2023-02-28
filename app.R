@@ -88,17 +88,21 @@ ui <- navbarPage('Vancouver Crime Data',
                                 tabPanel('Plots',
                                          # Split into 2 x 2 (equal width)
 # Crime Map ####################################################################
-                                         fluidRow(
-                                           leafletOutput("CrimeMap", height = "600px")
-                                         ),
+                                         #fluidRow(
+                                           #leafletOutput("CrimeMap", height = "600px")
+                                         #),
 # Crime Map ####################################################################
                                          fluidRow(
                                            # First row = sample plot 1 and text only
-                                           splitLayout(cellWidths = c("50%", "50%"), plotlyOutput(outputId = 'sample'), plotlyOutput(outputId = 'crime_type_plot'))
+                                           splitLayout(cellWidths = c("50%", "50%"),
+                                                       leafletOutput("CrimeMap", height = "600px"),
+                                                       plotlyOutput(outputId = 'crime_type_plot'))
                                          ),
                                          fluidRow(
                                            # Second row = text only and sample plot 4
-                                           splitLayout(cellWidths = c("50%", "50%"), plotlyOutput(outputId = 'crime_neighbourhood_plot'), plotlyOutput(outputId = 'crime_hour_plot'))
+                                           splitLayout(cellWidths = c("50%", "50%"),
+                                                       plotlyOutput(outputId = 'crime_neighbourhood_plot'),
+                                                       plotlyOutput(outputId = 'crime_hour_plot'))
                                          )
                                 ),
                                 # Second tab (for illustration only)
@@ -183,12 +187,28 @@ server <- function(input, output, session) {
              YEAR <= input$year[2],
              NEIGHBOURHOOD %in% input$nhood)
 
+    df_group <- df_select |>
+      group_by(HOUR) |>
+      summarise(n = n()) |>
+      mutate(Time = as.factor(paste(HOUR, ':00', sep = '')),
+             daily_avg = n / (365 * (input$year[2] - input$year[1] + 1)))
+    
+    df_group$Time = fct_relevel(df_group$Time,
+                           c('0:00', '1:00', '2:00', '3:00', '4:00',
+                             '5:00', '6:00', '7:00', '8:00', '9:00',
+                             '10:00', '11:00', '12:00', '13:00', '14:00',
+                             '15:00', '16:00', '17:00', '18:00', '19:00',
+                             '20:00', '21:00', '22:00', '23:00')
+    )
+    
     ggplotly(
-      ggplot(df_select, aes(x=HOUR)) +
-        geom_line(stat='count') +
-        labs(x='Time (hour)',
-             y='Count',
-             title='Number of crimes by hour')
+      ggplot(df_group, aes(x=Time, y = daily_avg, group = 1)) +
+        geom_line() +
+        labs(x='Time',
+             y='Daily Average',
+             title='Average Number of Crimes by Time') +
+        scale_x_discrete(breaks=c('0:00', '3:00', '6:00', '9:00',
+                                    '12:00', '15:00', '18:00', '21:00'))
     )
   })
   
