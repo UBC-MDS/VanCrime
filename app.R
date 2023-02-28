@@ -55,7 +55,7 @@ ui <- dashboardPage(
       inputId = "nhood",
       label = "Select Vancouver Neighbourhood",
       choices = unique_nhood,
-      selected = c("Central Business District"),
+      selected = c("Arbutus Ridge", "Central Business District", "Dunbar-Southlands"),
       options = pickerOptions(
         actionsBox = TRUE,
         size = 10,
@@ -71,8 +71,8 @@ ui <- dashboardPage(
         "Number of crimes",
         fluidRow(
           box(
-            title = "Number of crimes by type",
-            plotlyOutput(outputId = 'crime_type_plot'),
+            title = "Average Number of Crimes by Time",
+            plotlyOutput(outputId = 'crime_hour_plot'),
             width = 6
           ),
           box(
@@ -83,8 +83,8 @@ ui <- dashboardPage(
         ),
         fluidRow(
           box(
-            title = "Average Number of Crimes by Time",
-            plotlyOutput(outputId = 'crime_hour_plot'),
+            title = "Number of crimes by type",
+            plotlyOutput(outputId = 'crime_type_plot'),
             width = 12
           )
         )
@@ -109,18 +109,7 @@ ui <- dashboardPage(
   )
 )
 
-
 server <- function(input, output, session) {
-  # To be removed ##############################
-  # Sample plot 1
-  output$sample <- renderPlotly({
-    ggplotly(
-      ggplot(mtcars, aes(x=hp, y=mpg)) +
-        geom_point(size=1)
-    )
-  })
-  # To be removed ##############################
-
   df_select <- reactive({
     df |>
       filter(YEAR >= input$year[1],
@@ -129,31 +118,27 @@ server <- function(input, output, session) {
       add_count(TYPE)
   })
   
-  # Plot 2 - Total Crimes by Type
+  # Plot - Total Crimes by Type
   output$crime_type_plot <- renderPlotly({
-    #df_select <- df |>
-    #  filter(YEAR >= input$year[1],
-    #         YEAR <= input$year[2],
-    #         NEIGHBOURHOOD %in% input$nhood) |>
-    #  add_count(TYPE)
-    
     ggplotly(
       ggplot(df_select(), aes(y=reorder(TYPE, -n), fill=TYPE, text=paste0('count: ', n))) +
         geom_bar(stat='count') +
         labs(x='Count',
              y='Crime type') +
+        theme(text=element_text(family="Arial"),
+              plot.title=element_text(family="Arial"),
+              plot.subtitle=element_text(family="Arial"),
+              axis.title.x=element_text(family="Arial"),
+              axis.title.y=element_text(family="Arial"),
+              axis.text.x=element_text(family="Arial"),
+              axis.text.y=element_text(family="Arial")) +
         guides(fill='none'),
       tooltip=c('text')
     )
   })
 
-  # Crime Map ##################################################################
+  # Plot - Crime Map
   output$CrimeMap <- renderLeaflet({
-    #df_select <- df |>
-    #  filter(YEAR >= input$year[1],
-    #         YEAR <= input$year[2],
-    #         NEIGHBOURHOOD %in% input$nhood)
-    
     leaflet(df_select()) %>%
       addTiles() %>%
       addMarkers(
@@ -163,32 +148,27 @@ server <- function(input, output, session) {
         clusterOptions = markerClusterOptions()
       )
   })
-  # Crime Map ##################################################################
   
-  # Plot 3 - Total Crimes by Neighbourhood
+  # Plot - Total Crimes by Neighbourhood
   output$crime_neighbourhood_plot <- renderPlotly({
-    #df_select <- df |>
-    #  filter(YEAR >= input$year[1],
-    #         YEAR <= input$year[2],
-    #         NEIGHBOURHOOD %in% input$nhood)
-    
     ggplotly(
       ggplot(df_select(), aes(x=YEAR, fill=NEIGHBOURHOOD)) +
         geom_area(stat='count') +
         labs(x='Year',
              y='Total number of crimes',
-             title='Trend of total number of crimes',
-             fill='Neighbourhood')
+             fill='Neighbourhood') +
+        theme(text=element_text(family="Arial"),
+              plot.title=element_text(family="Arial"),
+              plot.subtitle=element_text(family="Arial"),
+              axis.title.x=element_text(family="Arial"),
+              axis.title.y=element_text(family="Arial"),
+              axis.text.x=element_text(family="Arial"),
+              axis.text.y=element_text(family="Arial"))
     )
   })
 
-  # Plot 4 - Total Crimes by Hour
+  # Plot - Total Crimes by Hour
   output$crime_hour_plot <- renderPlotly({
-    #df_select <- df |>
-    #  filter(YEAR >= input$year[1],
-    #         YEAR <= input$year[2],
-    #         NEIGHBOURHOOD %in% input$nhood)
-
     df_group <- df_select() |>
       group_by(HOUR) |>
       summarise(n = n()) |>
@@ -208,16 +188,17 @@ server <- function(input, output, session) {
         geom_line() +
         labs(x='Time',
              y='Daily Average') +
+        theme(text=element_text(family="Arial"),
+              plot.title=element_text(family="Arial"),
+              plot.subtitle=element_text(family="Arial"),
+              axis.title.x=element_text(family="Arial"),
+              axis.title.y=element_text(family="Arial"),
+              axis.text.x=element_text(family="Arial"),
+              axis.text.y=element_text(family="Arial")) +
         scale_x_discrete(breaks=c('0:00', '3:00', '6:00', '9:00',
                                     '12:00', '15:00', '18:00', '21:00'))
     )
   })
-  
-  # Sample plot 4
-  # output$sample4 <- renderPlot({
-  #   ggplot(mtcars, aes(x=cyl, y=mpg)) +
-  #     geom_point(size=1)
-  # })
 }
 
 thematic_shiny()
