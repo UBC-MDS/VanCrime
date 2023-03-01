@@ -116,7 +116,14 @@ ui <- dashboardPage(
       # Third tab for learn more
       tabPanel(
         "Learn More",
-        "Put the instruction / readme here"
+        box(
+          HTML("<p>The current project is a dahsbord  for the Vancouver (Canada) crime data released by the Vancouver Police Department (<a href='https://vpd.ca/'>VPD</a>).</p>"),
+          HTML("<p>For more information, please visit our GitHub repository at <a href='https://github.com/UBC-MDS/VanCrime'>https://github.com/UBC-MDS/VanCrime</a>.</p>"),
+          h4('License'),
+          p('The current project was created by Morris Chan, Markus Nam, Andy Wang and Tony Zoght. It is licensed under the terms of the MIT license.'),
+          width = 12
+        )
+        
       )
     )
   )
