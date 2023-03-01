@@ -25,8 +25,9 @@ df <- df |>
 # Get year range
 year_range <- range(df$YEAR)
 
-# Get unique neighbourhood
+# Get unique neighbourhood and crime type
 unique_nhood <- sort(unique(df$NEIGHBOURHOOD))
+unique_crimetype <- sort(unique(df$TYPE))
 
 # prepare UTM coordinates matrix
 # PS: df$X and df$Y are UTM Easting and Northing respectively
@@ -56,6 +57,18 @@ ui <- dashboardPage(
       label = "Select Vancouver Neighbourhood",
       choices = unique_nhood,
       selected = c("Arbutus Ridge", "Central Business District", "Dunbar-Southlands"),
+      options = pickerOptions(
+        actionsBox = TRUE,
+        size = 10,
+        selectedTextFormat = "count > 1",
+      ),
+      multiple = TRUE
+    ),
+    pickerInput(
+      inputId = "crimetype",
+      label = "Select Types of Crimes",
+      choices = unique_crimetype,
+      selected = unique_crimetype,
       options = pickerOptions(
         actionsBox = TRUE,
         size = 10,
@@ -114,7 +127,8 @@ server <- function(input, output, session) {
     df |>
       filter(YEAR >= input$year[1],
              YEAR <= input$year[2],
-             NEIGHBOURHOOD %in% input$nhood) |>
+             NEIGHBOURHOOD %in% input$nhood,
+             TYPE %in% input$crimetype) |>
       add_count(TYPE)
   })
   
