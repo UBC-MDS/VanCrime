@@ -18,7 +18,7 @@ The program follows a conventional dashboard layout in which the user can select
 
 Here's a link to the live [application](https://markusnam.shinyapps.io/VanCrime/) if you like to check it out.
 
-![](img/paste-A22EE691.png)
+![](img/vancrime.gif)
 
 This dashboard application includes:
 
