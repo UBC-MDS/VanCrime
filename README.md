@@ -14,13 +14,13 @@ This README file serves as a central location for the project's documentation. Y
 * [Credits](#credits)
 * [Quick Links](#quick-links)
 
-## Who are we and what is this app about ?
+## Who are we and what is this app about
 
 We are a team of [UBC MDS](https://masterdatascience.ubc.ca/) students that created this fantastic Shiny app for our [Data Visualization II](https://ubc-mds.github.io/course-descriptions/DSCI_532_viz-2/) group project.
 
 In a nutshell, this is a dashboard application that helps users and interested parties visualize Vancouver crime data, publicly released by the Vancouver Police Department ([VPD](https://vpd.ca/)). The information will be arranged in a manner that takes into account the different types of criminal behavior, as well as the time periods and neighbourhoods involved. It is important to note that the purpose of this dashboard is not to label any specific area of Vancouver with a negative connotation, but rather to educate. For a detailed description of the motivation, description, and usage scenarios, please visit [Proposal](reports/proposal.md).
 
-## How to use this app ?
+## How to use this app
 
 The program follows a conventional dashboard layout in which the user can select or specify the scope of what they need to visualize on the left side, and a set of relevant visualization components that update in response to the user's selection criteria on the right.
 
@@ -58,7 +58,7 @@ The second tab, titled "Crime Map," is an interactive map of Vancouver, that ove
 
 ![](img/paste-945F04C1.png)
 
-## How to get involved and contribute ?
+## How to get involved and contribute
 
 Anyone interested in helping us improve this dashboard and take on some of the following tasks are especially welcome to get in touch. Areas that we are interested in improving are:
 
