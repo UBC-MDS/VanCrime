@@ -6,6 +6,14 @@ Thank you for visiting the VanCrime app project repository. This repository host
 
 This README file serves as a central location for the project's documentation. You may either go directly to a subsection of interest or continue reading to learn more.
 
+* [Who are we and what is this app about?](#who-are-we-and-what-is-this-app-about)
+* [How to use this app?](#how-to-use-this-app)
+* [How to get involved and contribute?](#how-to-get-involved-and-contribute)
+* [Getting started](#getting-started)
+* [License](#license)
+* [Credits](#credits)
+* [Quick Links](#quick-links)
+
 ## Who are we and what is this app about ?
 
 We are a team of [UBC MDS](https://masterdatascience.ubc.ca/) students that created this fantastic Shiny app for our [Data Visualization II](https://ubc-mds.github.io/course-descriptions/DSCI_532_viz-2/) group project.
@@ -18,7 +26,7 @@ The program follows a conventional dashboard layout in which the user can select
 
 Here's a link to the live [application](https://markusnam.shinyapps.io/VanCrime/) if you like to check it out.
 
-![](img/paste-A22EE691.png)
+![](img/vancrime.gif)
 
 This dashboard application includes:
 
@@ -61,7 +69,7 @@ Anyone interested in helping us improve this dashboard and take on some of the f
 
 We love to have you contribute to this dashboard, and the next section will help you get started with that and guide you through the setup.
 
-## Getting Started
+## Getting started
 
 Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING.md). Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
 
