@@ -99,7 +99,7 @@ To setup your development environment to contribute to VanCrime please follow th
 
 ## Credits
 
-The sketch of `VanCrime` dashboard was created with [`Balsamiq`](https://balsamiq.com/wireframes/).
+The original sketch of `VanCrime` dashboard was created with [`Balsamiq`](https://balsamiq.com/wireframes/).
 
 ## Quick Links
 
