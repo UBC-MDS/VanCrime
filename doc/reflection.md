@@ -14,4 +14,4 @@
 
 ## Future Improvements
 - To enhance user experience, we can implement a two-way binding feature for our map plot and the filtering widget. This will enable users to directly filter data on the map and see the immediate effects on the rest of the plot.
-- Currently, the crime map is showing all crimes in the selected neighbourhood and time range, which can be overwhelming for users. Consider adding filters or options to the map to allow users to select specific crime types or time periods.
+- We could add more specific timing filter including hour and minute under the map plot. 
