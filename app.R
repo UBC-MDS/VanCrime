@@ -203,6 +203,22 @@ server <- function(input, output, session) {
               axis.text.x=element_text(family="Arial"),
               axis.text.y=element_text(family="Arial"))
     }
+    else if (length(unique(df_select()$YEAR)) <= 1) {
+      ggplot() + 
+        annotate("text", x = 0.5, y = 0.5,
+                 label = "Please select at least two years.",
+                 size = 8, color = "red", hjust = 0.5, vjust = 0.5) +
+        labs(x='Year',
+             y='Total number of crimes',
+             fill='Neighbourhood') +
+        theme(text=element_text(family="Arial"),
+              plot.title=element_text(family="Arial"),
+              plot.subtitle=element_text(family="Arial"),
+              axis.title.x=element_text(family="Arial"),
+              axis.title.y=element_text(family="Arial"),
+              axis.text.x=element_text(family="Arial"),
+              axis.text.y=element_text(family="Arial"))
+    }
     else {
       ggplotly(
         ggplot(df_select(), aes(x=YEAR, fill=NEIGHBOURHOOD)) +
