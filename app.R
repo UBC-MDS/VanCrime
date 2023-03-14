@@ -141,9 +141,10 @@ server <- function(input, output, session) {
   
   # Plot - Total Crimes by Type
   output$crime_type_plot <- renderPlotly({
-    ggplotly(
-      ggplot(df_select(), aes(y=reorder(TYPE, -n), fill=TYPE, text=paste0('count: ', n))) +
-        geom_bar(stat='count') +
+    if (nrow(df_select()) == 0) {
+      ggplot() + 
+        annotate("text", x = 0.5, y = 0.5, label = "No values selected",
+                 size = 8, color = "red", hjust = 0.5, vjust = 0.5) +
         labs(x='Count',
              y='Crime type') +
         theme(text=element_text(family="Arial"),
@@ -152,10 +153,25 @@ server <- function(input, output, session) {
               axis.title.x=element_text(family="Arial"),
               axis.title.y=element_text(family="Arial"),
               axis.text.x=element_text(family="Arial"),
-              axis.text.y=element_text(family="Arial")) +
-        guides(fill='none'),
-      tooltip=c('text')
-    )
+              axis.text.y=element_text(family="Arial"))
+    }
+    else {
+      ggplotly(
+        ggplot(df_select(), aes(y=reorder(TYPE, -n), fill=TYPE, text=paste0('count: ', n))) +
+          geom_bar(stat='count') +
+          labs(x='Count',
+               y='Crime type') +
+          theme(text=element_text(family="Arial"),
+                plot.title=element_text(family="Arial"),
+                plot.subtitle=element_text(family="Arial"),
+                axis.title.x=element_text(family="Arial"),
+                axis.title.y=element_text(family="Arial"),
+                axis.text.x=element_text(family="Arial"),
+                axis.text.y=element_text(family="Arial")) +
+          guides(fill='none'),
+        tooltip=c('text')
+      )
+    }
   })
 
   # Plot - Crime Map
@@ -172,9 +188,10 @@ server <- function(input, output, session) {
   
   # Plot - Total Crimes by Neighbourhood
   output$crime_neighbourhood_plot <- renderPlotly({
-    ggplotly(
-      ggplot(df_select(), aes(x=YEAR, fill=NEIGHBOURHOOD)) +
-        geom_area(stat='count') +
+    if (nrow(df_select()) == 0) {
+      ggplot() + 
+        annotate("text", x = 0.5, y = 0.5, label = "No values selected",
+                 size = 8, color = "red", hjust = 0.5, vjust = 0.5) +
         labs(x='Year',
              y='Total number of crimes',
              fill='Neighbourhood') +
@@ -185,28 +202,31 @@ server <- function(input, output, session) {
               axis.title.y=element_text(family="Arial"),
               axis.text.x=element_text(family="Arial"),
               axis.text.y=element_text(family="Arial"))
-    )
+    }
+    else {
+      ggplotly(
+        ggplot(df_select(), aes(x=YEAR, fill=NEIGHBOURHOOD)) +
+          geom_area(stat='count') +
+          labs(x='Year',
+               y='Total number of crimes',
+               fill='Neighbourhood') +
+          theme(text=element_text(family="Arial"),
+                plot.title=element_text(family="Arial"),
+                plot.subtitle=element_text(family="Arial"),
+                axis.title.x=element_text(family="Arial"),
+                axis.title.y=element_text(family="Arial"),
+                axis.text.x=element_text(family="Arial"),
+                axis.text.y=element_text(family="Arial"))
+      )
+    }
   })
 
   # Plot - Total Crimes by Hour
   output$crime_hour_plot <- renderPlotly({
-    df_group <- df_select() |>
-      group_by(HOUR) |>
-      summarise(n = n()) |>
-      mutate(Time = as.factor(paste(HOUR, ':00', sep = '')),
-             daily_avg = n / (365 * (input$year[2] - input$year[1] + 1)))
-    
-    df_group$Time = fct_relevel(df_group$Time,
-                           c('0:00', '1:00', '2:00', '3:00', '4:00',
-                             '5:00', '6:00', '7:00', '8:00', '9:00',
-                             '10:00', '11:00', '12:00', '13:00', '14:00',
-                             '15:00', '16:00', '17:00', '18:00', '19:00',
-                             '20:00', '21:00', '22:00', '23:00')
-    )
-    
-    ggplotly(
-      ggplot(df_group, aes(x=Time, y = daily_avg, group = 1)) +
-        geom_line() +
+    if (nrow(df_select()) == 0) {
+      ggplot() + 
+        annotate("text", x = 0.5, y = 0.5, label = "No values selected",
+                 size = 8, color = "red", hjust = 0.5, vjust = 0.5) +
         labs(x='Time',
              y='Daily Average') +
         theme(text=element_text(family="Arial"),
@@ -215,10 +235,39 @@ server <- function(input, output, session) {
               axis.title.x=element_text(family="Arial"),
               axis.title.y=element_text(family="Arial"),
               axis.text.x=element_text(family="Arial"),
-              axis.text.y=element_text(family="Arial")) +
-        scale_x_discrete(breaks=c('0:00', '3:00', '6:00', '9:00',
-                                    '12:00', '15:00', '18:00', '21:00'))
-    )
+              axis.text.y=element_text(family="Arial"))
+    }
+    else {
+      df_group <- df_select() |>
+        group_by(HOUR) |>
+        summarise(n = n()) |>
+        mutate(Time = as.factor(paste(HOUR, ':00', sep = '')),
+               daily_avg = n / (365 * (input$year[2] - input$year[1] + 1)))
+      
+      df_group$Time = fct_relevel(df_group$Time,
+                             c('0:00', '1:00', '2:00', '3:00', '4:00',
+                               '5:00', '6:00', '7:00', '8:00', '9:00',
+                               '10:00', '11:00', '12:00', '13:00', '14:00',
+                               '15:00', '16:00', '17:00', '18:00', '19:00',
+                               '20:00', '21:00', '22:00', '23:00')
+      )
+      
+      ggplotly(
+        ggplot(df_group, aes(x=Time, y = daily_avg, group = 1)) +
+          geom_line() +
+          labs(x='Time',
+               y='Daily Average') +
+          theme(text=element_text(family="Arial"),
+                plot.title=element_text(family="Arial"),
+                plot.subtitle=element_text(family="Arial"),
+                axis.title.x=element_text(family="Arial"),
+                axis.title.y=element_text(family="Arial"),
+                axis.text.x=element_text(family="Arial"),
+                axis.text.y=element_text(family="Arial")) +
+          scale_x_discrete(breaks=c('0:00', '3:00', '6:00', '9:00',
+                                      '12:00', '15:00', '18:00', '21:00'))
+      )
+    }
   })
 }
 
