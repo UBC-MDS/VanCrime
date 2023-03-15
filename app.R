@@ -6,7 +6,7 @@ library(plotly)
 library(tidyverse)
 library(shinyWidgets)
 library(leaflet)
-#library(rgdal)
+library(rgdal)
 library(shinydashboard)
 
 # Optimizing workflow
