@@ -82,11 +82,17 @@ ui <- shinydashboard::dashboardPage(
       # First tab for map
       shiny::tabPanel(
         "Crime Map",
-        id = "tab2",
+        id = "tab1",
         shiny::fluidRow(
           shinydashboard::box(
             title = "Crime Map",
             leafletOutput("CrimeMap", height = "600px"),
+          textOutput("top_3_crime_types"),
+        # shinydashboard::box(
+        #   title = "Top 3 Crimes in Selected Neighborhood",
+        #   textOutput("top_3_crime_types"),
+        #   width = 12
+        # ),
             width = 12
           )
         )
@@ -94,7 +100,7 @@ ui <- shinydashboard::dashboardPage(
       # Second tab for plots
       shiny::tabPanel(
         "Number of crimes",
-        id = "tab1",
+        id = "tab2",
         shiny::fluidRow(
           shinydashboard::box(
             title = "Average Number of Crimes by Time",
@@ -286,6 +292,20 @@ server <- function(input, output, session) {
                                       '12:00', '15:00', '18:00', '21:00'))
       )
     }
+  })
+  
+  # Text - Top 3 Crimes by Neighbourhood
+  output$top_3_crime_types <- renderText({
+    paste0(
+      'The most frequent crimes are ',
+      df_select() %>%
+        dplyr::group_by(TYPE) %>%
+        dplyr::summarise(count = n()) %>%
+        dplyr::arrange(desc(count)) %>%
+        dplyr::slice_head(n = 3) %>%
+        dplyr::pull(TYPE) %>%
+        paste0(collapse = ", ") 
+    )
   })
 }
 
