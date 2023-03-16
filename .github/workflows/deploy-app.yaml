@@ -21,12 +21,7 @@ jobs:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-renv@v2
-    
-      - name: Install dependencies
-        run: |
-          install.packages("shinytest2")
-          install.packages("websocket"")
-
+  
       - name: Install rsconnect
         run: install.packages("rsconnect")
         shell: Rscript {0}
