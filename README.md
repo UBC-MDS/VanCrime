@@ -1,3 +1,5 @@
+[![shiny-deploy](https://github.com/UBC-MDS/VanCrime/actions/workflows/deploy-app.yaml/badge.svg)](https://github.com/UBC-MDS/VanCrime/actions/workflows/deploy-app.yaml) [![Test app w/ {renv}](https://github.com/UBC-MDS/VanCrime/actions/workflows/testing.yaml/badge.svg)](https://github.com/UBC-MDS/VanCrime/actions/workflows/testing.yaml)
+
 # VanCrime
 
 ## Overview
