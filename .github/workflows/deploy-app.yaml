@@ -24,7 +24,6 @@ jobs:
     
       - name: Install dependencies
         run: |
-          install.packages('remotes')
           install.packages('shinytest2')
           install.packages('websocket')
 
