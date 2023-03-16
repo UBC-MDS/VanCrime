@@ -138,14 +138,32 @@ ui <- shinydashboard::dashboardPage(
 )
 
 server <- function(input, output, session) {
+  # filter data based on widget values
   df_select <- shiny::reactive({
-    df |>
+    validate_data <- df |>
       dplyr::filter(YEAR >= input$year[1],
              YEAR <= input$year[2],
              NEIGHBOURHOOD %in% input$nhood,
              TYPE %in% input$crimetype) |>
       dplyr::add_count(TYPE)
+    
+    validate(
+      missing_values(validate_data)
+    )
+    
+    validate_data
   })
+  
+  
+  missing_values <- function(input_data) {
+    if(nrow(input_data) == 0) {
+      "Please select neighbourhood(s) and crime type(s)"
+    }
+    else {
+      NULL
+    }
+  }
+  
   
   # Plot - Total Crimes by Type
   output$crime_type_plot <- plotly::renderPlotly({
@@ -214,8 +232,8 @@ server <- function(input, output, session) {
     else if (length(unique(df_select()$YEAR)) <= 1) {
       ggplot2::ggplot() + 
         annotate("text", x = 0.5, y = 0.5,
-                 label = "Please select at least two years.",
-                 size = 8, color = "red", hjust = 0.5, vjust = 0.5) +
+                 label = "Please select a range of at least two years",
+                 size = 5, color = "red", hjust = 0.5, vjust = 0.5) +
         labs(x='Year',
              y='Total number of crimes',
              fill='Neighbourhood') +
