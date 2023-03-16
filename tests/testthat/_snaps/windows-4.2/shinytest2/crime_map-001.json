@@ -1,0 +1,1524 @@
+{
+  "input": {
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "crimetype": [
+      "Break and Enter Commercial",
+      "Break and Enter Residential/Other",
+      "Theft from Vehicle",
+      "Theft of Bicycle",
+      "Theft of Vehicle",
+      "Vehicle Collision or Pedestrian Struck (with Fatality)",
+      "Vehicle Collision or Pedestrian Struck (with Injury)"
+    ],
+    "nhood": [
+      "Arbutus Ridge",
+      "Central Business District"
+    ],
+    "plotly_afterplot-A": "\"crime_hour_plot\"",
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "year": [
+      2003,
+      2022
+    ]
+  },
+  "output": {
+    "crime_hour_plot": {
+      "x": {
+        "data": [
+          {
+            "x": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "y": [
+              0.736438356164384,
+              0.382054794520548,
+              0.327945205479452,
+              0.305753424657534,
+              0.323013698630137,
+              0.324794520547945,
+              0.352054794520548,
+              0.435205479452055,
+              0.622191780821918,
+              0.645890410958904,
+              0.527534246575342,
+              0.502191780821918,
+              0.675753424657534,
+              0.563972602739726,
+              0.618493150684931,
+              0.673287671232877,
+              0.762191780821918,
+              0.941369863013699,
+              1.18328767123288,
+              0.993287671232877,
+              0.852876712328767,
+              0.828493150684931,
+              0.875616438356164,
+              0.737534246575343
+            ],
+            "text": [
+              "Time: 0:00<br />daily_avg: 0.7364384",
+              "Time: 1:00<br />daily_avg: 0.3820548",
+              "Time: 2:00<br />daily_avg: 0.3279452",
+              "Time: 3:00<br />daily_avg: 0.3057534",
+              "Time: 4:00<br />daily_avg: 0.3230137",
+              "Time: 5:00<br />daily_avg: 0.3247945",
+              "Time: 6:00<br />daily_avg: 0.3520548",
+              "Time: 7:00<br />daily_avg: 0.4352055",
+              "Time: 8:00<br />daily_avg: 0.6221918",
+              "Time: 9:00<br />daily_avg: 0.6458904",
+              "Time: 10:00<br />daily_avg: 0.5275342",
+              "Time: 11:00<br />daily_avg: 0.5021918",
+              "Time: 12:00<br />daily_avg: 0.6757534",
+              "Time: 13:00<br />daily_avg: 0.5639726",
+              "Time: 14:00<br />daily_avg: 0.6184932",
+              "Time: 15:00<br />daily_avg: 0.6732877",
+              "Time: 16:00<br />daily_avg: 0.7621918",
+              "Time: 17:00<br />daily_avg: 0.9413699",
+              "Time: 18:00<br />daily_avg: 1.1832877",
+              "Time: 19:00<br />daily_avg: 0.9932877",
+              "Time: 20:00<br />daily_avg: 0.8528767",
+              "Time: 21:00<br />daily_avg: 0.8284932",
+              "Time: 22:00<br />daily_avg: 0.8756164",
+              "Time: 23:00<br />daily_avg: 0.7375342"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 1.88976377952756,
+              "color": "rgba(51,51,51,1)",
+              "dash": "solid"
+            },
+            "hoveron": "points",
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          }
+        ],
+        "layout": {
+          "margin": {
+            "t": 25.7412480974125,
+            "r": 7.30593607305936,
+            "b": 39.6955859969559,
+            "l": 48.9497716894977
+          },
+          "plot_bgcolor": "rgba(239,239,239,1)",
+          "paper_bgcolor": "rgba(255,255,255,1)",
+          "font": {
+            "color": "rgba(51,51,51,1)",
+            "family": "Arial",
+            "size": 14.6118721461187
+          },
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              0.4,
+              24.6
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0:00",
+              "3:00",
+              "6:00",
+              "9:00",
+              "12:00",
+              "15:00",
+              "18:00",
+              "21:00"
+            ],
+            "tickvals": [
+              1,
+              4,
+              7,
+              10,
+              13,
+              16,
+              19,
+              22
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0:00",
+              "3:00",
+              "6:00",
+              "9:00",
+              "12:00",
+              "15:00",
+              "18:00",
+              "21:00"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(89,89,89,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(111,111,111,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(255,255,255,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "y",
+            "title": {
+              "text": "Time",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              0.261876712328767,
+              1.22716438356164
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0.50",
+              "0.75",
+              "1.00"
+            ],
+            "tickvals": [
+              0.5,
+              0.75,
+              1
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0.50",
+              "0.75",
+              "1.00"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(89,89,89,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(111,111,111,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(255,255,255,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "x",
+            "title": {
+              "text": "Daily Average",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "shapes": [
+            {
+              "type": "rect",
+              "fillcolor": null,
+              "line": {
+                "color": null,
+                "width": 0,
+                "linetype": [
+
+                ]
+              },
+              "yref": "paper",
+              "xref": "paper",
+              "x0": 0,
+              "x1": 1,
+              "y0": 0,
+              "y1": 1
+            }
+          ],
+          "showlegend": false,
+          "legend": {
+            "bgcolor": "rgba(255,255,255,1)",
+            "bordercolor": "transparent",
+            "borderwidth": 1.88976377952756,
+            "font": {
+              "color": "rgba(51,51,51,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            }
+          },
+          "hovermode": "closest",
+          "barmode": "relative"
+        },
+        "config": {
+          "doubleClick": "reset",
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
+          "showSendToCloud": false
+        },
+        "source": "A",
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "jquery-3.5.1"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.2.0",
+          "src": {
+            "href": "crosstalk-1.2.0"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "2.11.1",
+          "src": {
+            "href": "plotly-htmlwidgets-css-2.11.1"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "2.11.1",
+          "src": {
+            "href": "plotly-main-2.11.1"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "crime_neighbourhood_plot": {
+      "x": {
+        "data": [
+          {
+            "x": [
+              2003,
+              2004,
+              2005,
+              2006,
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2022,
+              2021,
+              2020,
+              2019,
+              2018,
+              2017,
+              2016,
+              2015,
+              2014,
+              2013,
+              2012,
+              2011,
+              2010,
+              2009,
+              2008,
+              2007,
+              2006,
+              2005,
+              2004,
+              2003,
+              2003
+            ],
+            "y": [
+              7724,
+              6651,
+              5758,
+              6235,
+              5887,
+              5833,
+              4662,
+              3465,
+              3112,
+              3158,
+              3635,
+              4357,
+              5228,
+              6466,
+              6046,
+              7003,
+              8139,
+              4561,
+              3269,
+              3690,
+              3868,
+              3435,
+              4817,
+              8370,
+              7247,
+              6345,
+              6798,
+              5525,
+              4713,
+              3863,
+              3449,
+              3354,
+              3716,
+              4949,
+              6084,
+              6163,
+              6564,
+              6254,
+              7172,
+              8210,
+              7724
+            ],
+            "text": [
+              "count: 8210<br />YEAR: 2003<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 7172<br />YEAR: 2004<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6254<br />YEAR: 2005<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6564<br />YEAR: 2006<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6163<br />YEAR: 2007<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6084<br />YEAR: 2008<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 4949<br />YEAR: 2009<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3716<br />YEAR: 2010<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3354<br />YEAR: 2011<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3449<br />YEAR: 2012<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3863<br />YEAR: 2013<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 4713<br />YEAR: 2014<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 5525<br />YEAR: 2015<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6798<br />YEAR: 2016<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6345<br />YEAR: 2017<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 7247<br />YEAR: 2018<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 8370<br />YEAR: 2019<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 4817<br />YEAR: 2020<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3435<br />YEAR: 2021<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3868<br />YEAR: 2022<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3868<br />YEAR: 2022<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3435<br />YEAR: 2021<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 4817<br />YEAR: 2020<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 8370<br />YEAR: 2019<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 7247<br />YEAR: 2018<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6345<br />YEAR: 2017<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6798<br />YEAR: 2016<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 5525<br />YEAR: 2015<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 4713<br />YEAR: 2014<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3863<br />YEAR: 2013<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3449<br />YEAR: 2012<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3354<br />YEAR: 2011<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 3716<br />YEAR: 2010<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 4949<br />YEAR: 2009<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6084<br />YEAR: 2008<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6163<br />YEAR: 2007<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6564<br />YEAR: 2006<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 6254<br />YEAR: 2005<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 7172<br />YEAR: 2004<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 8210<br />YEAR: 2003<br />NEIGHBOURHOOD: Arbutus Ridge",
+              "count: 8210<br />YEAR: 2003<br />NEIGHBOURHOOD: Arbutus Ridge"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 1.88976377952756,
+              "color": "transparent",
+              "dash": "solid"
+            },
+            "fill": "toself",
+            "fillcolor": "rgba(230,159,0,1)",
+            "hoveron": "points",
+            "name": "Arbutus Ridge",
+            "legendgroup": "Arbutus Ridge",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "x": [
+              2003,
+              2004,
+              2005,
+              2006,
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2022,
+              2022,
+              2021,
+              2020,
+              2019,
+              2018,
+              2017,
+              2016,
+              2015,
+              2014,
+              2013,
+              2012,
+              2011,
+              2010,
+              2009,
+              2008,
+              2007,
+              2006,
+              2005,
+              2004,
+              2003,
+              2003
+            ],
+            "y": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3690,
+              3269,
+              4561,
+              8139,
+              7003,
+              6046,
+              6466,
+              5228,
+              4357,
+              3635,
+              3158,
+              3112,
+              3465,
+              4662,
+              5833,
+              5887,
+              6235,
+              5758,
+              6651,
+              7724,
+              0
+            ],
+            "text": [
+              "count: 7724<br />YEAR: 2003<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6651<br />YEAR: 2004<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5758<br />YEAR: 2005<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6235<br />YEAR: 2006<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5887<br />YEAR: 2007<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5833<br />YEAR: 2008<br />NEIGHBOURHOOD: Central Business District",
+              "count: 4662<br />YEAR: 2009<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3465<br />YEAR: 2010<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3112<br />YEAR: 2011<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3158<br />YEAR: 2012<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3635<br />YEAR: 2013<br />NEIGHBOURHOOD: Central Business District",
+              "count: 4357<br />YEAR: 2014<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5228<br />YEAR: 2015<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6466<br />YEAR: 2016<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6046<br />YEAR: 2017<br />NEIGHBOURHOOD: Central Business District",
+              "count: 7003<br />YEAR: 2018<br />NEIGHBOURHOOD: Central Business District",
+              "count: 8139<br />YEAR: 2019<br />NEIGHBOURHOOD: Central Business District",
+              "count: 4561<br />YEAR: 2020<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3269<br />YEAR: 2021<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3690<br />YEAR: 2022<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3690<br />YEAR: 2022<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3690<br />YEAR: 2022<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3269<br />YEAR: 2021<br />NEIGHBOURHOOD: Central Business District",
+              "count: 4561<br />YEAR: 2020<br />NEIGHBOURHOOD: Central Business District",
+              "count: 8139<br />YEAR: 2019<br />NEIGHBOURHOOD: Central Business District",
+              "count: 7003<br />YEAR: 2018<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6046<br />YEAR: 2017<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6466<br />YEAR: 2016<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5228<br />YEAR: 2015<br />NEIGHBOURHOOD: Central Business District",
+              "count: 4357<br />YEAR: 2014<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3635<br />YEAR: 2013<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3158<br />YEAR: 2012<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3112<br />YEAR: 2011<br />NEIGHBOURHOOD: Central Business District",
+              "count: 3465<br />YEAR: 2010<br />NEIGHBOURHOOD: Central Business District",
+              "count: 4662<br />YEAR: 2009<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5833<br />YEAR: 2008<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5887<br />YEAR: 2007<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6235<br />YEAR: 2006<br />NEIGHBOURHOOD: Central Business District",
+              "count: 5758<br />YEAR: 2005<br />NEIGHBOURHOOD: Central Business District",
+              "count: 6651<br />YEAR: 2004<br />NEIGHBOURHOOD: Central Business District",
+              "count: 7724<br />YEAR: 2003<br />NEIGHBOURHOOD: Central Business District",
+              "count: 7724<br />YEAR: 2003<br />NEIGHBOURHOOD: Central Business District"
+            ],
+            "type": "scatter",
+            "mode": "lines",
+            "line": {
+              "width": 1.88976377952756,
+              "color": "transparent",
+              "dash": "solid"
+            },
+            "fill": "toself",
+            "fillcolor": "rgba(0,158,115,1)",
+            "hoveron": "points",
+            "name": "Central Business District",
+            "legendgroup": "Central Business District",
+            "showlegend": true,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          }
+        ],
+        "layout": {
+          "margin": {
+            "t": 25.7412480974125,
+            "r": 7.30593607305936,
+            "b": 39.6955859969559,
+            "l": 48.9497716894977
+          },
+          "plot_bgcolor": "rgba(239,239,239,1)",
+          "paper_bgcolor": "rgba(255,255,255,1)",
+          "font": {
+            "color": "rgba(51,51,51,1)",
+            "family": "Arial",
+            "size": 14.6118721461187
+          },
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              2002.05,
+              2022.95
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "2005",
+              "2010",
+              "2015",
+              "2020"
+            ],
+            "tickvals": [
+              2005,
+              2010,
+              2015,
+              2020
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "2005",
+              "2010",
+              "2015",
+              "2020"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(89,89,89,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(111,111,111,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(255,255,255,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "y",
+            "title": {
+              "text": "Year",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -418.5,
+              8788.5
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0",
+              "2000",
+              "4000",
+              "6000",
+              "8000"
+            ],
+            "tickvals": [
+              0,
+              2000,
+              4000,
+              6000,
+              8000
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0",
+              "2000",
+              "4000",
+              "6000",
+              "8000"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(89,89,89,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(111,111,111,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(255,255,255,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "x",
+            "title": {
+              "text": "Total number of crimes",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "shapes": [
+            {
+              "type": "rect",
+              "fillcolor": null,
+              "line": {
+                "color": null,
+                "width": 0,
+                "linetype": [
+
+                ]
+              },
+              "yref": "paper",
+              "xref": "paper",
+              "x0": 0,
+              "x1": 1,
+              "y0": 0,
+              "y1": 1
+            }
+          ],
+          "showlegend": true,
+          "legend": {
+            "bgcolor": "rgba(255,255,255,1)",
+            "bordercolor": "transparent",
+            "borderwidth": 1.88976377952756,
+            "font": {
+              "color": "rgba(51,51,51,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "title": {
+              "text": "Neighbourhood",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            }
+          },
+          "hovermode": "closest",
+          "barmode": "relative"
+        },
+        "config": {
+          "doubleClick": "reset",
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
+          "showSendToCloud": false
+        },
+        "source": "A",
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "jquery-3.5.1"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.2.0",
+          "src": {
+            "href": "crosstalk-1.2.0"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "2.11.1",
+          "src": {
+            "href": "plotly-htmlwidgets-css-2.11.1"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "2.11.1",
+          "src": {
+            "href": "plotly-main-2.11.1"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
+    "crime_type_plot": {
+      "x": {
+        "data": [
+          {
+            "orientation": "v",
+            "width": 71501,
+            "base": 0.55,
+            "x": 35750.5,
+            "y": 0.9,
+            "text": "count: 71501",
+            "type": "bar",
+            "textposition": "none",
+            "marker": {
+              "autocolorscale": false,
+              "color": "rgba(0,114,178,1)",
+              "line": {
+                "width": 1.88976377952756,
+                "color": "transparent"
+              }
+            },
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "orientation": "v",
+            "width": 6220,
+            "base": 3.55,
+            "x": 3110,
+            "y": 0.9,
+            "text": "count: 6220",
+            "type": "bar",
+            "textposition": "none",
+            "marker": {
+              "autocolorscale": false,
+              "color": "rgba(0,158,115,1)",
+              "line": {
+                "width": 1.88976377952756,
+                "color": "transparent"
+              }
+            },
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "orientation": "v",
+            "width": 5259,
+            "base": 4.55,
+            "x": 2629.5,
+            "y": 0.9,
+            "text": "count: 5259",
+            "type": "bar",
+            "textposition": "none",
+            "marker": {
+              "autocolorscale": false,
+              "color": "rgba(153,153,153,1)",
+              "line": {
+                "width": 1.88976377952756,
+                "color": "transparent"
+              }
+            },
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "orientation": "v",
+            "width": 9838,
+            "base": 2.55,
+            "x": 4919,
+            "y": 0.9,
+            "text": "count: 9838",
+            "type": "bar",
+            "textposition": "none",
+            "marker": {
+              "autocolorscale": false,
+              "color": "rgba(204,121,167,1)",
+              "line": {
+                "width": 1.88976377952756,
+                "color": "transparent"
+              }
+            },
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "orientation": "v",
+            "width": 58,
+            "base": 6.55,
+            "x": 29,
+            "y": 0.9,
+            "text": "count: 58",
+            "type": "bar",
+            "textposition": "none",
+            "marker": {
+              "autocolorscale": false,
+              "color": "rgba(213,94,0,1)",
+              "line": {
+                "width": 1.88976377952756,
+                "color": "transparent"
+              }
+            },
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "orientation": "v",
+            "width": 13432,
+            "base": 1.55,
+            "x": 6716,
+            "y": 0.9,
+            "text": "count: 13432",
+            "type": "bar",
+            "textposition": "none",
+            "marker": {
+              "autocolorscale": false,
+              "color": "rgba(230,159,0,1)",
+              "line": {
+                "width": 1.88976377952756,
+                "color": "transparent"
+              }
+            },
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          },
+          {
+            "orientation": "v",
+            "width": 4588,
+            "base": 5.55,
+            "x": 2294,
+            "y": 0.9,
+            "text": "count: 4588",
+            "type": "bar",
+            "textposition": "none",
+            "marker": {
+              "autocolorscale": false,
+              "color": "rgba(240,228,66,1)",
+              "line": {
+                "width": 1.88976377952756,
+                "color": "transparent"
+              }
+            },
+            "showlegend": false,
+            "xaxis": "x",
+            "yaxis": "y",
+            "hoverinfo": "text",
+            "frame": null
+          }
+        ],
+        "layout": {
+          "margin": {
+            "t": 25.7412480974125,
+            "r": 7.30593607305936,
+            "b": 39.6955859969559,
+            "l": 341.187214611872
+          },
+          "plot_bgcolor": "rgba(239,239,239,1)",
+          "paper_bgcolor": "rgba(255,255,255,1)",
+          "font": {
+            "color": "rgba(51,51,51,1)",
+            "family": "Arial",
+            "size": 14.6118721461187
+          },
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              -3575.05,
+              75076.05
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "0",
+              "20000",
+              "40000",
+              "60000"
+            ],
+            "tickvals": [
+              0,
+              20000,
+              40000,
+              60000
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "0",
+              "20000",
+              "40000",
+              "60000"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(89,89,89,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(111,111,111,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(255,255,255,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "y",
+            "title": {
+              "text": "Count",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "type": "linear",
+            "autorange": false,
+            "range": [
+              0.4,
+              7.6
+            ],
+            "tickmode": "array",
+            "ticktext": [
+              "Theft from Vehicle",
+              "Break and Enter Commercial",
+              "Theft of Bicycle",
+              "Break and Enter Residential/Other",
+              "Theft of Vehicle",
+              "Vehicle Collision or Pedestrian Struck (with Injury)",
+              "Vehicle Collision or Pedestrian Struck (with Fatality)"
+            ],
+            "tickvals": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "categoryorder": "array",
+            "categoryarray": [
+              "Theft from Vehicle",
+              "Break and Enter Commercial",
+              "Theft of Bicycle",
+              "Break and Enter Residential/Other",
+              "Theft of Vehicle",
+              "Vehicle Collision or Pedestrian Struck (with Injury)",
+              "Vehicle Collision or Pedestrian Struck (with Fatality)"
+            ],
+            "nticks": null,
+            "ticks": "outside",
+            "tickcolor": "rgba(89,89,89,1)",
+            "ticklen": 3.65296803652968,
+            "tickwidth": 0.66417600664176,
+            "showticklabels": true,
+            "tickfont": {
+              "color": "rgba(111,111,111,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "tickangle": 0,
+            "showline": false,
+            "linecolor": null,
+            "linewidth": 0,
+            "showgrid": true,
+            "gridcolor": "rgba(255,255,255,1)",
+            "gridwidth": 0.66417600664176,
+            "zeroline": false,
+            "anchor": "x",
+            "title": {
+              "text": "Crime type",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            },
+            "hoverformat": ".2f"
+          },
+          "shapes": [
+            {
+              "type": "rect",
+              "fillcolor": null,
+              "line": {
+                "color": null,
+                "width": 0,
+                "linetype": [
+
+                ]
+              },
+              "yref": "paper",
+              "xref": "paper",
+              "x0": 0,
+              "x1": 1,
+              "y0": 0,
+              "y1": 1
+            }
+          ],
+          "showlegend": false,
+          "legend": {
+            "bgcolor": "rgba(255,255,255,1)",
+            "bordercolor": "transparent",
+            "borderwidth": 1.88976377952756,
+            "font": {
+              "color": "rgba(51,51,51,1)",
+              "family": "Arial",
+              "size": 11.689497716895
+            },
+            "title": {
+              "text": "",
+              "font": {
+                "color": "rgba(51,51,51,1)",
+                "family": "Arial",
+                "size": 14.6118721461187
+              }
+            }
+          },
+          "hovermode": "closest",
+          "barmode": "relative"
+        },
+        "config": {
+          "doubleClick": "reset",
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
+          "showSendToCloud": false
+        },
+        "source": "A",
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "jquery-3.5.1"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.2.0",
+          "src": {
+            "href": "crosstalk-1.2.0"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "2.11.1",
+          "src": {
+            "href": "plotly-htmlwidgets-css-2.11.1"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "2.11.1",
+          "src": {
+            "href": "plotly-main-2.11.1"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
