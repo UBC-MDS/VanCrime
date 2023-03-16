@@ -21,6 +21,13 @@ jobs:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-renv@v2
+    
+      - name: Install dependencies
+        run: |
+          install.packages('remotes')
+          install.packages('shinytest2')
+          install.packages('websocket')
+          remotes::install_deps(dependencies = TRUE)
 
       - name: Install rsconnect
         run: install.packages("rsconnect")
@@ -36,3 +43,4 @@ jobs:
           rsconnect::setAccountInfo("${{ secrets.RSCONNECT_USER }}", "${{ secrets.RSCONNECT_TOKEN }}", "${{ secrets.RSCONNECT_SECRET }}")
           rsconnect::deployApp(appName = "${{ env.APPNAME }}", account = "${{ env.ACCOUNT }}", server = "${{ env.SERVER }}")
         shell: Rscript {0}
+        
