@@ -1,6 +1,5 @@
 library(shiny)
 library(ggplot2)
-#library(bslib)
 library(thematic)
 library(plotly)
 library(tidyverse)
@@ -8,6 +7,7 @@ library(shinyWidgets)
 library(leaflet)
 library(rgdal)
 library(shinydashboard)
+library(shinycssloaders)
 
 # Optimizing workflow
 options(shiny.autoreload = TRUE)
@@ -84,15 +84,13 @@ ui <- shinydashboard::dashboardPage(
         "Crime Map",
         id = "tab1",
         shiny::fluidRow(
+          # tags$style(type="text/css", "#myplot { width: 100%; height: 100%; }"),
           shinydashboard::box(
             title = "Crime Map",
-            leafletOutput("CrimeMap", height = "600px"),
-          textOutput("top_3_crime_types"),
-        # shinydashboard::box(
-        #   title = "Top 3 Crimes in Selected Neighborhood",
-        #   textOutput("top_3_crime_types"),
-        #   width = 12
-        # ),
+            textOutput("top_3_crime_types"),
+            shinycssloaders::withSpinner(
+              leafletOutput("CrimeMap", height="450px")
+            ),
             width = 12
           )
         )
@@ -104,19 +102,25 @@ ui <- shinydashboard::dashboardPage(
         shiny::fluidRow(
           shinydashboard::box(
             title = "Average Number of Crimes by Time",
-            plotlyOutput(outputId = 'crime_hour_plot'),
+            shinycssloaders::withSpinner(
+              plotlyOutput(outputId = 'crime_hour_plot', height='200px')
+            ),
             width = 6
           ),
           shinydashboard::box(
             title = "Trend of total number of crimes",
-            plotlyOutput(outputId = 'crime_neighbourhood_plot'),
+            shinycssloaders::withSpinner(
+              plotlyOutput(outputId = 'crime_neighbourhood_plot', height='200px')
+            ),
             width = 6
           )
         ),
         shiny::fluidRow(
           shinydashboard::box(
             title = "Number of crimes by type",
-            plotlyOutput(outputId = 'crime_type_plot'),
+            shinycssloaders::withSpinner(
+              plotlyOutput(outputId = 'crime_type_plot', height='200px')
+            ),
             width = 12
           )
         )
@@ -137,15 +141,34 @@ ui <- shinydashboard::dashboardPage(
   )
 )
 
+
 server <- function(input, output, session) {
+  # filter data based on widget values
   df_select <- shiny::reactive({
-    df |>
+    validate_data <- df |>
       dplyr::filter(YEAR >= input$year[1],
              YEAR <= input$year[2],
              NEIGHBOURHOOD %in% input$nhood,
              TYPE %in% input$crimetype) |>
       dplyr::add_count(TYPE)
+    
+    validate(
+      missing_values(validate_data)
+    )
+    
+    validate_data
   })
+  
+  
+  missing_values <- function(input_data) {
+    if(nrow(input_data) == 0) {
+      "Please select neighbourhood(s) and crime type(s)"
+    }
+    else {
+      NULL
+    }
+  }
+  
   
   # Plot - Total Crimes by Type
   output$crime_type_plot <- plotly::renderPlotly({
@@ -214,8 +237,8 @@ server <- function(input, output, session) {
     else if (length(unique(df_select()$YEAR)) <= 1) {
       ggplot2::ggplot() + 
         annotate("text", x = 0.5, y = 0.5,
-                 label = "Please select at least two years.",
-                 size = 8, color = "red", hjust = 0.5, vjust = 0.5) +
+                 label = "Please select a range of at least two years",
+                 size = 5, color = "red", hjust = 0.5, vjust = 0.5) +
         labs(x='Year',
              y='Total number of crimes',
              fill='Neighbourhood') +
@@ -295,7 +318,7 @@ server <- function(input, output, session) {
   })
   
   # Text - Top 3 Crimes by Neighbourhood
-  output$top_3_crime_types <- renderText({
+  output$top_3_crime_types <- shiny::renderText({
     paste0(
       'The most frequent crimes are ',
       df_select() %>%
