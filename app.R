@@ -1,6 +1,5 @@
 library(shiny)
 library(ggplot2)
-#library(bslib)
 library(thematic)
 library(plotly)
 library(tidyverse)
@@ -85,17 +84,13 @@ ui <- shinydashboard::dashboardPage(
         "Crime Map",
         id = "tab1",
         shiny::fluidRow(
+          # tags$style(type="text/css", "#myplot { width: 100%; height: 100%; }"),
           shinydashboard::box(
             title = "Crime Map",
+            textOutput("top_3_crime_types"),
             shinycssloaders::withSpinner(
-              leafletOutput("CrimeMap", height = "600px")
+              leafletOutput("CrimeMap", height="450px")
             ),
-          textOutput("top_3_crime_types"),
-        # shinydashboard::box(
-        #   title = "Top 3 Crimes in Selected Neighborhood",
-        #   textOutput("top_3_crime_types"),
-        #   width = 12
-        # ),
             width = 12
           )
         )
@@ -108,14 +103,14 @@ ui <- shinydashboard::dashboardPage(
           shinydashboard::box(
             title = "Average Number of Crimes by Time",
             shinycssloaders::withSpinner(
-              plotlyOutput(outputId = 'crime_hour_plot')
+              plotlyOutput(outputId = 'crime_hour_plot', height='200px')
             ),
             width = 6
           ),
           shinydashboard::box(
             title = "Trend of total number of crimes",
             shinycssloaders::withSpinner(
-              plotlyOutput(outputId = 'crime_neighbourhood_plot')
+              plotlyOutput(outputId = 'crime_neighbourhood_plot', height='200px')
             ),
             width = 6
           )
@@ -124,7 +119,7 @@ ui <- shinydashboard::dashboardPage(
           shinydashboard::box(
             title = "Number of crimes by type",
             shinycssloaders::withSpinner(
-              plotlyOutput(outputId = 'crime_type_plot')
+              plotlyOutput(outputId = 'crime_type_plot', height='200px')
             ),
             width = 12
           )
@@ -145,6 +140,7 @@ ui <- shinydashboard::dashboardPage(
     )
   )
 )
+
 
 server <- function(input, output, session) {
   # filter data based on widget values
@@ -322,7 +318,7 @@ server <- function(input, output, session) {
   })
   
   # Text - Top 3 Crimes by Neighbourhood
-  output$top_3_crime_types <- renderText({
+  output$top_3_crime_types <- shiny::renderText({
     paste0(
       'The most frequent crimes are ',
       df_select() %>%
