@@ -27,7 +27,6 @@ jobs:
           install.packages('remotes')
           install.packages('shinytest2')
           install.packages('websocket')
-          remotes::install_deps(dependencies = TRUE)
 
       - name: Install rsconnect
         run: install.packages("rsconnect")
