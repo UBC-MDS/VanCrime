@@ -79,7 +79,19 @@ ui <- shinydashboard::dashboardPage(
   ),
   shinydashboard::dashboardBody(
     shiny::tabsetPanel(
-      # First tab
+      # First tab for map
+      shiny::tabPanel(
+        "Crime Map",
+        id = "tab2",
+        shiny::fluidRow(
+          shinydashboard::box(
+            title = "Crime Map",
+            leafletOutput("CrimeMap", height = "600px"),
+            width = 12
+          )
+        )
+      ),
+      # Second tab for plots
       shiny::tabPanel(
         "Number of crimes",
         id = "tab1",
@@ -99,18 +111,6 @@ ui <- shinydashboard::dashboardPage(
           shinydashboard::box(
             title = "Number of crimes by type",
             plotlyOutput(outputId = 'crime_type_plot'),
-            width = 12
-          )
-        )
-      ),
-      # Second tab for map
-      shiny::tabPanel(
-        "Crime Map",
-        id = "tab2",
-        shiny::fluidRow(
-          shinydashboard::box(
-            title = "Crime Map",
-            leafletOutput("CrimeMap", height = "600px"),
             width = 12
           )
         )
