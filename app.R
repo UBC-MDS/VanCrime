@@ -82,6 +82,7 @@ ui <- shinydashboard::dashboardPage(
       # First tab
       shiny::tabPanel(
         "Number of crimes",
+        id = "tab1",
         shiny::fluidRow(
           shinydashboard::box(
             title = "Average Number of Crimes by Time",
@@ -105,6 +106,7 @@ ui <- shinydashboard::dashboardPage(
       # Second tab for map
       shiny::tabPanel(
         "Crime Map",
+        id = "tab2",
         shiny::fluidRow(
           shinydashboard::box(
             title = "Crime Map",
@@ -116,6 +118,7 @@ ui <- shinydashboard::dashboardPage(
       # Third tab for learn more
       shiny::tabPanel(
         "Learn More",
+        id = "tab3",
         shinydashboard::box(
           HTML("<p>The current project is a dahsbord  for the Vancouver (Canada) crime data released by the Vancouver Police Department (<a href='https://vpd.ca/'>VPD</a>).</p>"),
           HTML("<p>For more information, please visit our GitHub repository at <a href='https://github.com/UBC-MDS/VanCrime'>https://github.com/UBC-MDS/VanCrime</a>.</p>"),
