@@ -24,8 +24,8 @@ jobs:
     
       - name: Install dependencies
         run: |
-          install.packages('shinytest2')
-          install.packages('websocket')
+          install.packages("shinytest2")
+          install.packages("websocket"")
 
       - name: Install rsconnect
         run: install.packages("rsconnect")
