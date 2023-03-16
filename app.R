@@ -8,6 +8,7 @@ library(shinyWidgets)
 library(leaflet)
 library(rgdal)
 library(shinydashboard)
+library(shinycssloaders)
 
 # Optimizing workflow
 options(shiny.autoreload = TRUE)
@@ -86,7 +87,9 @@ ui <- shinydashboard::dashboardPage(
         shiny::fluidRow(
           shinydashboard::box(
             title = "Crime Map",
-            leafletOutput("CrimeMap", height = "600px"),
+            shinycssloaders::withSpinner(
+              leafletOutput("CrimeMap", height = "600px")
+            ),
           textOutput("top_3_crime_types"),
         # shinydashboard::box(
         #   title = "Top 3 Crimes in Selected Neighborhood",
@@ -104,19 +107,25 @@ ui <- shinydashboard::dashboardPage(
         shiny::fluidRow(
           shinydashboard::box(
             title = "Average Number of Crimes by Time",
-            plotlyOutput(outputId = 'crime_hour_plot'),
+            shinycssloaders::withSpinner(
+              plotlyOutput(outputId = 'crime_hour_plot')
+            ),
             width = 6
           ),
           shinydashboard::box(
             title = "Trend of total number of crimes",
-            plotlyOutput(outputId = 'crime_neighbourhood_plot'),
+            shinycssloaders::withSpinner(
+              plotlyOutput(outputId = 'crime_neighbourhood_plot')
+            ),
             width = 6
           )
         ),
         shiny::fluidRow(
           shinydashboard::box(
             title = "Number of crimes by type",
-            plotlyOutput(outputId = 'crime_type_plot'),
+            shinycssloaders::withSpinner(
+              plotlyOutput(outputId = 'crime_type_plot')
+            ),
             width = 12
           )
         )
