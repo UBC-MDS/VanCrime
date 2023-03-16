@@ -541,10 +541,10 @@
     },
     "ggplot2": {
       "Package": "ggplot2",
-      "Version": "3.4.0",
+      "Version": "3.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "fd2aab12f54400c6bca43687231e246b",
+      "Hash": "d494daf77c4aa7f084dbbe6ca5dcaca7",
       "Requirements": [
         "MASS",
         "cli",
