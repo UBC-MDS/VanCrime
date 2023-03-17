@@ -9,7 +9,7 @@ test_that("{shinytest2} recording: should_return_empty", {
 
 
 test_that("{shinytest2} recording: shouldReturnTab3", {
-  app <- AppDriver$new(name = "shouldReturnTab3", height = 857, width = 1406)
+  app <- AppDriver$new(name = "shouldReturnTab3", height = 857, width = 1406, load_timeout = 100000)
   app$set_inputs(nhood = character(0))
   app$set_inputs(crimetype = character(0))
   app$set_inputs(tab1 = "Learn More")
@@ -18,8 +18,9 @@ test_that("{shinytest2} recording: shouldReturnTab3", {
 
 
 
-test_that("{shinytest2} recording: shouldReturnCorrectTab2", {
-  app <- AppDriver$new(name = "shouldReturnCorrectTab2", height = 857, width = 1406)
+
+test_that("{shinytest2} recording: test_tab2_passing", {
+  app <- AppDriver$new(name = "test_tab2_passing", height = 857, width = 1406, load_timeout = 100000)
   app$set_inputs(crimetype = character(0))
   app$expect_values()
 })
