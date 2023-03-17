@@ -15,3 +15,11 @@ test_that("{shinytest2} recording: shouldReturnTab3", {
   app$set_inputs(tab1 = "Learn More")
   app$expect_values()
 })
+
+
+
+test_that("{shinytest2} recording: shouldReturnCorrectTab2", {
+  app <- AppDriver$new(name = "shouldReturnCorrectTab2", height = 857, width = 1406)
+  app$set_inputs(crimetype = character(0))
+  app$expect_values()
+})
