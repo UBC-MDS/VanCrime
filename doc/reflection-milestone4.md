@@ -14,6 +14,8 @@ We have also fixed an issue where users would receive an internal error message 
 
 We fixed an issue where the trend plot would be empty when only one year was selected and added top three crime type text to the map to provide more specific and relevant information to users.
 
+We added a download button inside our widge to allow user to download the filter dataframe in .csv file.
+
 In conclusion, we have received valuable feedback from our peers and TA throughout the development of our app. We have worked to address some of the weaknesses in our dashboard and have made improvements based on user feedback. We will continue to seek feedback and make improvements to ensure that our app is meeting the needs and expectations of our users.
 
 ## What we can improve

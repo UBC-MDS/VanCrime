@@ -1,0 +1,49 @@
+{
+  "input": {
+    "CrimeMap_bounds": {
+      "north": 49.3143800480069,
+      "east": -122.963104248047,
+      "south": 49.2135603623986,
+      "west": -123.336639404297
+    },
+    "CrimeMap_center": {
+      "lng": -123.149900034534,
+      "lat": 49.2639020579745
+    },
+    "CrimeMap_zoom": 12,
+    "crimetype": null,
+    "nhood": [
+      "Arbutus Ridge",
+      "Central Business District",
+      "Dunbar-Southlands"
+    ],
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "tab1": "Crime Map",
+    "year": [
+      2003,
+      2022
+    ]
+  },
+  "output": {
+    "CrimeMap": {
+      "message": "Please select neighbourhood(s) and crime type(s)",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    },
+    "top_3_crime_types": {
+      "message": "Please select neighbourhood(s) and crime type(s)",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
