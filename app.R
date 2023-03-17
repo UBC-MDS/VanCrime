@@ -87,7 +87,9 @@ ui <- shinydashboard::dashboardPage(
                                 "or Break and Enter). Please change the year sliders to focus the data on a specific",
                                 "from and to year so that the display can be constrained to a certain time period."
                         ))
-                       )
+                       ),
+    downloadButton("download_data", "Download Filtered Crime Data",
+                   style = "width: 230px; height: 40px; font-size: 13px; color: #333;")
     
 
     
@@ -106,7 +108,6 @@ ui <- shinydashboard::dashboardPage(
             shinycssloaders::withSpinner(
               leafletOutput("CrimeMap", height="450px")
             ),
-            downloadButton("download_data", "Download Filtered Crime Data as CSV"),
             width = 12
           )
         )
