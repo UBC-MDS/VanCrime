@@ -75,6 +75,19 @@ ui <- shinydashboard::dashboardPage(
         selectedTextFormat = "count > 1",
       ),
       multiple = TRUE
+    ),
+    shinydashboard::box(title = "Help Info ", 
+                        status = "primary", 
+                        solidHeader = TRUE, 
+                        width = 12,
+                        p(paste("The crime statistics that have been made public by the Vancouver Police",
+                            "Department are the basis for this dashboard. Please choose the neighbourhood of",
+                            "interest in order to visualize the crime data that are of interest for the particular",
+                            "neighbourhood (such as Fairview or Kitsilano). To narrow your search by category",
+                            "of criminal activity, please choose the category of criminal activity (such as Mischief",
+                            "or Break and Enter). Please change the year sliders to focus the data on a specific",
+                            "from and to year so that the display can be constrained to a certain time period."), 
+                        style = 'font-size:14px;color:black;'),
     )
   ),
   shinydashboard::dashboardBody(
