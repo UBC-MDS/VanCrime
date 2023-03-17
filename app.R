@@ -91,6 +91,7 @@ ui <- shinydashboard::dashboardPage(
             shinycssloaders::withSpinner(
               leafletOutput("CrimeMap", height="450px")
             ),
+            downloadButton("download_data", "Download Filtered Data as CSV"),
             width = 12
           )
         )
@@ -328,6 +329,15 @@ server <- function(input, output, session) {
         paste0(collapse = ", ") 
     )
   })
+  
+  output$download_data <- downloadHandler(
+    filename = function() {
+      paste("filtered_crime_data", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(df_select(), file, row.names = FALSE)
+    }
+  )
 }
 
 thematic::thematic_shiny()
