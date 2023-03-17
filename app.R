@@ -91,7 +91,7 @@ ui <- shinydashboard::dashboardPage(
             shinycssloaders::withSpinner(
               leafletOutput("CrimeMap", height="450px")
             ),
-            downloadButton("download_data", "Download Filtered Data as CSV"),
+            downloadButton("download_data", "Download Filtered Crime Data as CSV"),
             width = 12
           )
         )
