@@ -1,7 +1,7 @@
 library(shinytest2)
 
-test_that("{shinytest2} recording: should_show_no_map_t1", {
-  app <- AppDriver$new(name = "should_show_no_map_t1", height = 857, width = 1406, load_timeout=100000)
-  app$set_inputs(crimetype = character(0))
+test_that("{shinytest2} recording: test_tab1_with_no_neigh", {
+  app <- AppDriver$new(name = "test_tab1_with_no_neigh", height = 857, width = 1406, load_timeout = 10000)
+  app$set_inputs(nhood = character(0))
   app$expect_values()
 })
