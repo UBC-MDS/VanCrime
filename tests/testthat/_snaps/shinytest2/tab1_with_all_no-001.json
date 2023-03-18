@@ -1,0 +1,45 @@
+{
+  "input": {
+    "CrimeMap_bounds": {
+      "north": 49.3130371403811,
+      "east": -122.96516418457,
+      "south": 49.2122147082126,
+      "west": -123.33869934082
+    },
+    "CrimeMap_center": {
+      "lng": -123.152044070138,
+      "lat": 49.2626704285196
+    },
+    "CrimeMap_zoom": 12,
+    "crimetype": null,
+    "nhood": null,
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "tab1": "Crime Map",
+    "year": [
+      2003,
+      2003
+    ]
+  },
+  "output": {
+    "CrimeMap": {
+      "message": "Please select neighbourhood(s) and crime type(s)",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    },
+    "top_3_crime_types": {
+      "message": "Please select neighbourhood(s) and crime type(s)",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
