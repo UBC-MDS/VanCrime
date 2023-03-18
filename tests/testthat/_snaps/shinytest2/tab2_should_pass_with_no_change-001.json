@@ -1,0 +1,55 @@
+{
+  "input": {
+    "CrimeMap_bounds": {
+      "north": 49.3143800480069,
+      "east": -122.959327697754,
+      "south": 49.2135603623986,
+      "west": -123.340759277344
+    },
+    "CrimeMap_center": {
+      "lng": -123.149900034534,
+      "lat": 49.2639058040862
+    },
+    "CrimeMap_zoom": 12,
+    "crimetype": [
+      "Break and Enter Commercial",
+      "Break and Enter Residential/Other",
+      "Mischief",
+      "Other Theft",
+      "Theft from Vehicle",
+      "Theft of Bicycle",
+      "Theft of Vehicle",
+      "Vehicle Collision or Pedestrian Struck (with Fatality)",
+      "Vehicle Collision or Pedestrian Struck (with Injury)"
+    ],
+    "nhood": null,
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "tab1": "Crime Map",
+    "year": [
+      2003,
+      2012
+    ]
+  },
+  "output": {
+    "CrimeMap": {
+      "message": "Please select neighbourhood(s) and crime type(s)",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    },
+    "top_3_crime_types": {
+      "message": "Please select neighbourhood(s) and crime type(s)",
+      "call": "NULL",
+      "type": [
+        "shiny.silent.error",
+        "validation"
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
