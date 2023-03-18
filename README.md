@@ -38,19 +38,11 @@ This dashboard application includes:
 
 -   Filter the type of Crime to query (also in the form of a multi-selection widget)
 
+-   Download data based on user's selection on year, neighbourhood and crime type.
+
     ![](img/paste-0939ED93.png){width="279"}
 
-The components of the visualization are separated into tabs. The first tab, "Number of crimes," enables the user to visualize a variety of important metrics:
-
--   The average number of offences within a period of 24 hours.
-
--   The progression of the number of crimes per neighbourhood over the specified years
-
--   Lastly, the number of offences by filtering categoriess
-
-![](img/paste-488C7049.png)
-
-The second tab, titled "Crime Map," is an interactive map of Vancouver, that overlays the count of crimes per region, enabling the user to:
+The components of the visualization are separated into tabs. The first tab, "Crime Map," is an interactive map of Vancouver, that overlays the count of crimes per region, enabling the user to:
 
 -   See the crime rate per region (neighbourhood and city block of Vancouver)
 
@@ -58,7 +50,21 @@ The second tab, titled "Crime Map," is an interactive map of Vancouver, that ove
 
 -   Zoom in and out to obtain fine-grained or coarse-grained area counts.
 
-![](img/paste-945F04C1.png)
+![](img/tab1.jpg)
+
+The second tab, titled "Number of crimes," enables the user to visualize a variety of important metrics:
+
+-   The average number of offences within a period of 24 hours.
+
+-   The progression of the number of crimes per neighbourhood over the specified years
+
+-   Lastly, the number of offences by filtering categoriess
+
+![](img/tab2.jpg)
+
+User may also download the filtered dataset by clicking the [Donlwoad Filtered Crime Data] button in the sidebar area.
+
+![](img/button.jpg)
 
 ## How to get involved and contribute
 
